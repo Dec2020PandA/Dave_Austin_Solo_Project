@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% block image-cell %} <div class="grid-y cell grid-container"> {% endblock %}
+{% load static %}
+<div class="orbit" role="region" data-orbit data-options="data-auto-play: false">
+    <div class="orbit-wrapper">
+        <div class="orbit-controls">
+            <button class="orbit-previous">&#9664;&#xFE0E;</button>
+            <button class="orbit-next">&#9654;&#xFE0E;</button>
+        </div>
+        <ul class="orbit-container">
+            <li class="orbit-slide is-active">
+                <figure class="orbit-figure">
+                    <img src="{%static 'grandma-moses--a-blizzard-1956.jpg'%}" alt="" class="orbit-image">
+                    <figcaption class="orbit-caption">
+                        <h2>Grandma Moses</h2>
+                        <p>"A blizzard" – 1956</p>
+                    </figcaption>
+                </figure> 
+            </li>
+            <li class="orbit-slide">
+                <figure class="orbit-figure">
+                    <img src="{%static 'grandma-moses--apple-butter-making-1947.jpg'%}" alt="" class="orbit-image">
+                    <figcaption class="orbit-caption">
+                        <h2>Grandma Moses</h2>
+                        <p>"Apple Butter Making" – 1947</p>
+                    </figcaption>
+                </figure> 
+            </li>
+        </ul>
+    </div>
+    <nav class="orbit-bullets">
+        <ul class="pagination text-center">
+            <li class="pagination-previous"><a href="#">Previous</a></li>
+            <li class="pagination-next"><a href="#">Next</a></li>
+        </ul>
+    </nav>
+
+</div>
+{% endblock %}
+        

@@ -19,4 +19,8 @@ from identipaint_app import views
 
 urlpatterns = [
     path("", views.index),
+    path("login", views.login),
+    path("register", views.register),
+    path("select", views.select),
+    path("learn", views.learn)
 ]

@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2 class="text-center">What movement would you like to study?</h2>
+<form action="learn" class="input-group grid-container">
+    <select name="movement" class="input-group-field">
+        <option value="">Romanticism</option>
+        <option value="">Dada</option>
+        <option value="">De Stihl</option>
+        <option value="">Impressionism</option>
+        <option value="">Constructivism</option>
+    </select>
+    <button type="submit" class="input-group-button button">Go</button>
+</form>
+{% endblock %}

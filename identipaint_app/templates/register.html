@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2 class="text-center">Create an account</h2>
+<form action="select">
+    <label for="username">Username</label>
+    <input type="text" name="username">
+    <label for="email">Email</label>
+    <input type="email" name="email">
+    <label for="password">Password</label>
+    <input type="password" name="password">
+    <label for="confirm-pw">Confirm</label>
+    <input type="password" name="confirm-pw">
+    <button type="submit" class="button form-button">Register</button>
+</form>
+{% endblock %}

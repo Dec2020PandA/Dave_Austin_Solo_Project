@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identipaint</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    
+<body class="grid-frame grid-y">
+    <header class="cell grid-container">
+        <h1>identipaint</h1>
+    </header>
+    <main class="cell auto">
+        {% block image-cell %}
+        <div class="grid-y  grid-container">
+        {% endblock %}    
+            {% block content %}
+            <a class="button" href="login">Login</a>
+            <a class="button" href="register">Register</a>
+            {% endblock %}
+        </div>
+    </main>
+     
+    <script src="{% static 'js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'js/vendor/foundation.min.js' %}"></script>
+    <script src="{% static 'js/vendor/what-input.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
