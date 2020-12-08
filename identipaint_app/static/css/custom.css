@@ -18,3 +18,28 @@ main {
     margin-right: auto;
 }
 
+/* prevent foundation from placing controls in center of image */
+.orbit-previous,
+.orbit-next {
+    position: static;
+    transform: none;
+}
+
+#study-nav {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#test-answer {
+    margin-top: 1em;
+}
+
+#artist-info {
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+
+.hide-info {
+    opacity: 0;
+}

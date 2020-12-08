@@ -1,5 +1,14 @@
 {% extends 'index.html' %}
 
+{% block utilities %}
+<div class="utilities">
+    
+    <p >Hello, {{ request.user.username }}</p>
+    <a href="logout">Logout</a>
+</div>
+
+{% endblock %}
+
 {% block content %}
 <h2 class="text-center">What movement would you like to study?</h2>
 <form action="learn" class="input-group grid-container">

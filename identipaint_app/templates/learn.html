@@ -1,42 +1,43 @@
 {% extends 'index.html' %}
 
+{% block imagecell %} cell {% endblock imagecell %}
 {% block content %}
-{% block image-cell %} <div class="grid-y cell grid-container"> {% endblock %}
-{% load static %}
-<div class="orbit" role="region" data-orbit data-options="data-auto-play: false">
-    <div class="orbit-wrapper">
-        <div class="orbit-controls">
-            <button class="orbit-previous">&#9664;&#xFE0E;</button>
-            <button class="orbit-next">&#9654;&#xFE0E;</button>
-        </div>
-        <ul class="orbit-container">
-            <li class="orbit-slide is-active">
-                <figure class="orbit-figure">
+    
+    {% load static %}
+    
+    <h2>{% block heading%}Study these images{% endblock %}</h2>
+    <div class="orbit" role="region" data-orbit data-auto-play="false">
+        <div class="orbit-wrapper">
+            
+            <ul class="orbit-container">
+                <li class="orbit-slide is-active card card-section">
                     <img src="{%static 'grandma-moses--a-blizzard-1956.jpg'%}" alt="" class="orbit-image">
-                    <figcaption class="orbit-caption">
-                        <h2>Grandma Moses</h2>
-                        <p>"A blizzard" – 1956</p>
-                    </figcaption>
-                </figure> 
-            </li>
-            <li class="orbit-slide">
-                <figure class="orbit-figure">
-                    <img src="{%static 'grandma-moses--apple-butter-making-1947.jpg'%}" alt="" class="orbit-image">
-                    <figcaption class="orbit-caption">
-                        <h2>Grandma Moses</h2>
-                        <p>"Apple Butter Making" – 1947</p>
-                    </figcaption>
-                </figure> 
-            </li>
-        </ul>
-    </div>
-    <nav class="orbit-bullets">
-        <ul class="pagination text-center">
-            <li class="pagination-previous"><a href="#">Previous</a></li>
-            <li class="pagination-next"><a href="#">Next</a></li>
-        </ul>
-    </nav>
+                    <div class="card-section  {% block info %}{% endblock %} " id="artist-info">
+                        <h3>Grandma Moses</h3>
+                        <p>"A blizzard" – 1956</p> 
+                    </div>
+                </li>
 
-</div>
+                <li class="orbit-slide card card-section">
+                    <img src="{%static 'grandma-moses--apple-butter-making-1947.jpg'%}" alt="" class="orbit-image">
+                    <div class="card-section" >
+                        <h3>Grandma Moses</h3>
+                        <p>"Apple Butter Making" – 1947</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        {% block nav %}
+        <nav>
+            <ul class="pagination orbit-controls orbit-bullets grid-x" id="study-nav">
+                <li class="pagination-previous orbit-previous"><a href="#">Previous</a></li>
+                <button class="is-active" data-slide="0"></button>
+                <button data-slide="1"></button>
+                <li class="pagination-next orbit-next"><a href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+    <a href="test" class="button form-button">Done</a>
+        {% endblock %}
 {% endblock %}
         

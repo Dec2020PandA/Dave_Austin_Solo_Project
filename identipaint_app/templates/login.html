@@ -2,7 +2,8 @@
 
 {% block content %}
 <h2 class="text-center">Log In</h2>
-<form action="select">
+<form action="login" method="POST">
+    {% csrf_token %}
     <label for="username">Username or Email</label>
     <input type="text" name="username">
     <label for="password">Password</label>

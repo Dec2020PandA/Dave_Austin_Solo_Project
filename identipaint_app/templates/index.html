@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Identipaint</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     
 <body class="grid-frame grid-y">
-    <header class="cell grid-container">
+    <header class="cell grid-container grid-x top-bar">
         <h1>identipaint</h1>
+        {% block utilities %}
+        {% endblock %}
     </header>
     <main class="cell auto">
-        {% block image-cell %}
-        <div class="grid-y  grid-container">
-        {% endblock %}    
+        
+        <div class="grid-y {% block imagecell %} {% endblock imagecell %} grid-container">
+            
             {% block content %}
             <a class="button" href="login">Login</a>
             <a class="button" href="register">Register</a>
