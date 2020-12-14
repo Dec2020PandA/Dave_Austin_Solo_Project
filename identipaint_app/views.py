@@ -19,7 +19,8 @@ def log_in(request):
         )
         if user is not None:
             login(request, user)
-            request.session["session_key"] = new_session()
+            request.session["session_key"] = new_session(request)
+            print(request.session["session_key"])
             return redirect("/select")
         else:
             pass
@@ -56,7 +57,7 @@ def select(request):
 
 def learn(request):
 
-    artists = get_artists()["data"]
+    artists = get_artists(request.session["session_key"])["data"]
 
     new_stack = CardStack.objects.create()
 
@@ -78,7 +79,7 @@ def learn(request):
 
     for artist in new_stack.artists.all():
 
-        paintings = get_paintings(artist.url)
+        paintings = get_paintings(artist.url, request.session["session_key"])
 
         study_i = random.randint(0, len(paintings) - 1)
         test_i = study_i
@@ -104,6 +105,7 @@ def learn(request):
                 )
 
     context = {"cardstack_id": new_stack.id, "stack": new_stack.study_paintings}
+
     return render(request, "learn.html", context)
 
 

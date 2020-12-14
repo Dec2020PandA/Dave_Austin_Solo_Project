@@ -26,31 +26,73 @@ main {
 }
 
 #study-nav {
-    width: 100%;
+    margin-top: auto;
+}
+
+#study-nav > ul {
     align-items: center;
-    justify-content: space-between;
 }
 
 #test-answer {
     margin-top: 1em;
 }
 
-#artist-info {
-    transition-property: opacity;
-    transition-duration: 1s;
+.artist-info {
+    display: none;
+    /* transition-property: opacity; */
+    /* transition-duration: 1s; */
 }
 
 .hide-info {
     opacity: 0;
 }
 
-#learn-img {
-    max-height: 50vh;
-    width: auto;
+/* very important! do not alter max-height from vh uom */
+.learn-img {
+    max-height: calc(100vh - 20px);
+    object-fit: contain;
 }
 
 #slide {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.correct,
+.wrong {
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+}
+
+.correct {
+    color: #ffffff;
+}
+
+.wrong {
+    color: #fbcdcd;
+}
+
+#test_messages {
+    position: relative;
+    height: 50px;
+}
+/* 
+#orbitframe {
+    padding: 10px;
+    height: 100vh;
+} */
+
+#orbitwrap {
+    padding: 10px;
+    height: 100vh;
+}
+/* 
+ul {
+    max-height: 100%;
+} */
+
+#artist-info {
+    margin: auto 0;
 }

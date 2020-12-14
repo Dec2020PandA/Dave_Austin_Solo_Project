@@ -6,11 +6,21 @@
 
 {% block info %} hide-info {% endblock %}
 
+{% block test_messages %}
+
+<div id="test_messages">
+    <h4  class="hide-info correct">Correct!</h4>
+    <h4  class="hide-info wrong">Sorry!</h4>
+</div>
+
+{% endblock %}
+
+
 {% block nav %}
 
-<form action="" class="grid-x grid-margin-x" id="test-answer">
+<form class="grid-x grid-margin-x" id="test-answer">
     {% for artist in artists.all %} 
-    <button class="button cell small-4">{{ artist.name }}</button>
+    <button class="button cell small-4" value="{{ artist.id }}">{{ artist.name }}</button>
     {% endfor %}
 </form>
 

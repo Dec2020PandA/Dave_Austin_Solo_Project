@@ -10,20 +10,20 @@ def new_session():
     ).json()["SessionKey"]
 
 
-def get_artists():
+def get_artists(session_key):
     return requests.get(
         API_URL
         + "api/2/ArtistsByDictionary?&group=1&dictUrl=minimalism&"
         + "authSessionKey="
-        + request.session["session_key"]
+        + session_key
     ).json()
 
 
-def get_paintings(artist):
+def get_paintings(artist, session_key):
     return requests.get(
         API_URL
         + "App/Painting/PaintingsByArtist?artistUrl="
         + artist
         + "&json=2&authSessionKey="
-        + request.session["session_key"]
+        + session_key
     ).json()
