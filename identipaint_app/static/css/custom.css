@@ -43,3 +43,14 @@ main {
 .hide-info {
     opacity: 0;
 }
+
+#learn-img {
+    max-height: 50vh;
+    width: auto;
+}
+
+#slide {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

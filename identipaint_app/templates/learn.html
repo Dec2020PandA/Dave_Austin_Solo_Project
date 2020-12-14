@@ -1,30 +1,32 @@
 {% extends 'index.html' %}
 
 {% block imagecell %} cell {% endblock imagecell %}
+
 {% block content %}
     
-    {% load static %}
+
     
     <h2>{% block heading%}Study these images{% endblock %}</h2>
+   
     <div class="orbit" role="region" data-orbit data-auto-play="false">
         <div class="orbit-wrapper">
             
             <ul class="orbit-container">
-                <li class="orbit-slide is-active card card-section">
-                    <img src="{%static 'grandma-moses--a-blizzard-1956.jpg'%}" alt="" class="orbit-image">
-                    <div class="card-section  {% block info %}{% endblock %} " id="artist-info">
-                        <h3>Grandma Moses</h3>
-                        <p>"A blizzard" – 1956</p> 
+                
+                {% for painting in stack.all %}
+                
+                <li class="orbit-slide is-active">
+                    <div class="grid-x grid-margin-x" id="slide">
+                        <div class="cell large-auto">
+                            <img src="{{ painting.image_url }}" alt="" class="orbit-image" id="learn-img">
+                        </div>
+                        <div class="{% block info %}{% endblock %} cell large-auto" id="artist-info">
+                            <h3>{{ painting.artist.name }}</h3>
+                            <p>{{ painting.title }}</p> 
+                        </div>
                     </div>
                 </li>
-
-                <li class="orbit-slide card card-section">
-                    <img src="{%static 'grandma-moses--apple-butter-making-1947.jpg'%}" alt="" class="orbit-image">
-                    <div class="card-section" >
-                        <h3>Grandma Moses</h3>
-                        <p>"Apple Butter Making" – 1947</p>
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
         </div>
         {% block nav %}
@@ -33,11 +35,17 @@
                 <li class="pagination-previous orbit-previous"><a href="#">Previous</a></li>
                 <button class="is-active" data-slide="0"></button>
                 <button data-slide="1"></button>
+                <button data-slide="2"></button>
+                <button data-slide="3"></button>
+                <button data-slide="4"></button>
                 <li class="pagination-next orbit-next"><a href="#">Next</a></li>
             </ul>
         </nav>
     </div>
-    <a href="test" class="button form-button">Done</a>
+    <form action="test" method="POST">
+        {% csrf_token %}
+        <button class="button form-button" name="stack" value="{{ cardstack_id }}">Done</button>
+    </form>
         {% endblock %}
 {% endblock %}
         

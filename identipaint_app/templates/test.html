@@ -2,17 +2,16 @@
 
 {% block heading %}Who is this artist?{% endblock %}
 
+
+
 {% block info %} hide-info {% endblock %}
 
 {% block nav %}
 
-<form action="" class="grid-x grid-margin-x" id="test-answer"> 
-    <button class="button cell small-4">Traylor</button>
-    <button class="button cell small-4">Wain</button>
-    <button class="button cell small-4">Wölfli</button>
-    <button class="button cell small-4">Natterer</button>
-    <button class="button cell small-4">Soutter</button>
-    <button class="button cell small-4">Hunter</button>
+<form action="" class="grid-x grid-margin-x" id="test-answer">
+    {% for artist in artists.all %} 
+    <button class="button cell small-4">{{ artist.name }}</button>
+    {% endfor %}
 </form>
 
 {% endblock %}
