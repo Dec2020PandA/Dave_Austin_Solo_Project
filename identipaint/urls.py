@@ -21,8 +21,8 @@ urlpatterns = [
     path("", views.index),
     path("login", views.log_in),
     path("register", views.register),
-    # path("select", views.select),
-    path("select", views.learn),
+    path("select", views.select),
     path("learn", views.learn),
     path("test", views.test),
+    path("results", views.results),
 ]

@@ -10,11 +10,12 @@ def new_session():
     ).json()["SessionKey"]
 
 
-def get_artists(session_key):
+def get_artists(session_key, movement):
     return requests.get(
         API_URL
-        + "api/2/ArtistsByDictionary?&group=1&dictUrl=minimalism&"
-        + "authSessionKey="
+        + "api/2/ArtistsByDictionary?&group=1&dictUrl="
+        + movement
+        + "&authSessionKey="
         + session_key
     ).json()
 

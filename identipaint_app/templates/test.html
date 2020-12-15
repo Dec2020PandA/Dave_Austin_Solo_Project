@@ -1,10 +1,10 @@
 {% extends 'learn.html' %}
 
+{% block keyboard %} data-accessible="false" {% endblock %}
+
 {% block heading %}Who is this artist?{% endblock %}
 
-
-
-{% block info %} hide-info {% endblock %}
+{% block info %} class="hide-info" {% endblock %}
 
 {% block test_messages %}
 
@@ -19,9 +19,16 @@
 {% block nav %}
 
 <form class="grid-x grid-margin-x" id="test-answer">
+    {% csrf_token %}
     {% for artist in artists.all %} 
-    <button class="button cell small-4" value="{{ artist.id }}">{{ artist.name }}</button>
+    <button class="button cell small-4"  value="{{ artist.id }}" style="order:{{ test_order|random }}">{{ artist.name }}</button>
     {% endfor %}
+</form>
+
+<form id="continue" action="results" method="POST" id="results">
+    {% csrf_token %}
+    <input type="hidden" name="results" value="0" id="results_input">
+    <button class="button hollow">Continue</button>
 </form>
 
 {% endblock %}

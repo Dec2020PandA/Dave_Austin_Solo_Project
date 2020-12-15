@@ -1,23 +1,26 @@
-{% extends 'index.html' %}
+{% extends 'learn.html' %}
 
-{% block utilities %}
-<div class="utilities">
-    
-    <p >Hello, {{ request.user.username }}</p>
-    <a href="logout">Logout</a>
+{% block carousel %} 
+<div class="cell large-8" id="select-page-p">
+    <p class="h1" >{{ text }}</p>
 </div>
 
 {% endblock %}
 
-{% block content %}
-<h2 class="text-center">What movement would you like to study?</h2>
-<form action="learn" class="input-group grid-container">
+{% block heading%}
+<h2>What movement would you like to study?</h2>
+{% endblock %}
+
+{% block select_page %}
+{% endblock %}
+
+{% block nav %}
+<form action="learn" method="POST" class="input-group" id="select">
+    {% csrf_token %}
     <select name="movement" class="input-group-field">
-        <option value="">Romanticism</option>
-        <option value="">Dada</option>
-        <option value="">De Stihl</option>
-        <option value="">Impressionism</option>
-        <option value="">Constructivism</option>
+        <option value="romanticism">Romanticism</option>
+        <option value="dada">Dada</option>
+        <option value="impressionism">Impressionism</option>
     </select>
     <button type="submit" class="input-group-button button">Go</button>
 </form>

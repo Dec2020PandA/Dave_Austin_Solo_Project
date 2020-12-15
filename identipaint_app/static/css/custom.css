@@ -93,6 +93,29 @@ ul {
     max-height: 100%;
 } */
 
+#select {
+    margin-top: 2rem;
+}
+
+#test_messages,
 #artist-info {
     margin: auto 0;
+}
+
+#continue {
+    align-self: center;
+    height: 60px;
+}
+
+#continue > button {
+    display: none;
+}
+
+.large-8 {
+    order: 1;
+}
+
+#select-page-p {
+    margin: auto;
+    text-align: center;
 }

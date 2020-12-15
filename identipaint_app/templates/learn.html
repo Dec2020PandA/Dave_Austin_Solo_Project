@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="orbit" data-orbit data-auto-play="false">
+<div class="orbit" data-orbit data-auto-play="false"
+    {% block keyboard %} {% endblock %}>
     <div class="orbit-wrapper grid-container grid-x grid-padding-x" id="orbitwrap">
         
+        {% block carousel %}
+
         <ul class="orbit-container cell large-8 ">
             {% for painting in stack.all %}
             <li class="orbit-slide {% if forloop.first %} is-active {% endif %}"
@@ -17,15 +20,21 @@
             {% endfor %}                
         </ul>
         
+        {% endblock %}
+
         <div class="cell large-4 grid-y">
             <h1>identipaint</h1>
             
             <h2>{% block heading%}Study these images{% endblock %}</h2>
             
-            <div id="artist-info"></div>
-            
+            {% block test_messages %}   {% endblock %}
+
+            {% block select_page %}
+            <div id="artist-info" {% block info %}  {% endblock %}></div>
+            {% endblock %}
             
             {% block nav %}
+
             <nav id="study-nav">
                 <ul class="pagination orbit-controls orbit-bullets grid-x" >
                     <li class="pagination-previous orbit-previous"><a href="#">Previous</a></li>
